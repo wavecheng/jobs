@@ -17,7 +17,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	${username },hello
+	${username},hello
         <security:authorize access="!isAuthenticated()">
             <li><a href="<spring:url value="/register"/>"><i class="glyphicon-user"></i>
                 denglu

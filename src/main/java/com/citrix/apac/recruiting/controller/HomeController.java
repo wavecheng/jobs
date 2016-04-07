@@ -10,15 +10,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class HomeController {
 
 	@RequestMapping(value="/")
-	public String index(){
+	public String index(ModelMap model){
+	      Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+	      String name = auth.getName(); //get logged in username			
+	      model.addAttribute("username", name);
+
 		return "index";
 	}
 	
 	@RequestMapping(value="/login")
-	public void login(ModelMap model){
-	      Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-	      String name = auth.getName(); //get logged in username			
-	      model.addAttribute("username", name);
+	public void login(){
 
 	}
 	
