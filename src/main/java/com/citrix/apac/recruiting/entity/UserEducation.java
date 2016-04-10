@@ -3,12 +3,15 @@ package com.citrix.apac.recruiting.entity;
 import java.sql.Date;
 import java.sql.Timestamp;
 
+import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -48,9 +51,13 @@ public class UserEducation {
     private int totalRank;
    
     @Column(name="courses")
+    @Lob
+    @Basic(fetch=FetchType.LAZY)  
     private String courses;
 
     @Column(name="remark")
+    @Lob
+    @Basic(fetch=FetchType.LAZY)  
     private String remark;
     
     @Column(name="update_time")
@@ -59,5 +66,108 @@ public class UserEducation {
     @ManyToOne
     private Users users;
 
- 
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public Date getFromDate() {
+		return fromDate;
+	}
+
+	public void setFromDate(Date fromDate) {
+		this.fromDate = fromDate;
+	}
+
+	public Date getToDate() {
+		return toDate;
+	}
+
+	public void setToDate(Date toDate) {
+		this.toDate = toDate;
+	}
+
+	public String getUniversity() {
+		return university;
+	}
+
+	public void setUniversity(String university) {
+		this.university = university;
+	}
+
+	public String getDepart() {
+		return depart;
+	}
+
+	public void setDepart(String depart) {
+		this.depart = depart;
+	}
+
+	public String getMajor() {
+		return major;
+	}
+
+	public void setMajor(String major) {
+		this.major = major;
+	}
+
+	public EduLevel getDegree() {
+		return degree;
+	}
+
+	public void setDegree(EduLevel degree) {
+		this.degree = degree;
+	}
+
+	public Date getGraduateDate() {
+		return graduateDate;
+	}
+
+	public void setGraduateDate(Date graduateDate) {
+		this.graduateDate = graduateDate;
+	}
+
+	public int getTotalRank() {
+		return totalRank;
+	}
+
+	public void setTotalRank(int totalRank) {
+		this.totalRank = totalRank;
+	}
+
+	public String getCourses() {
+		return courses;
+	}
+
+	public void setCourses(String courses) {
+		this.courses = courses;
+	}
+
+	public String getRemark() {
+		return remark;
+	}
+
+	public void setRemark(String remark) {
+		this.remark = remark;
+	}
+
+	public Timestamp getUpdateTime() {
+		return updateTime;
+	}
+
+	public void setUpdateTime(Timestamp updateTime) {
+		this.updateTime = updateTime;
+	}
+
+	public Users getUsers() {
+		return users;
+	}
+
+	public void setUsers(Users users) {
+		this.users = users;
+	}
+
 }

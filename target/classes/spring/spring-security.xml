@@ -14,15 +14,13 @@
         <logout logout-url="/logout"/>
     </http>
 
+     <!-- user-service-ref="userService"	  -->  
     <authentication-manager>
-        <authentication-provider>
+        <authentication-provider >       	     	
 <!--             <password-encoder hash="bcrypt" /> -->
-            <jdbc-user-service data-source-ref="dataSource"
-                authorities-by-username-query="SELECT web_user.name, user_role.name FROM web_user
-                     JOIN web_user_x_user_role on web_user.id = web_user_x_user_role.user_Entities 
-                     JOIN user_role on web_user_x_user_role.role_Entities = user_role.id 
-                     WHERE web_user.name = ?" 
-                users-by-username-query="SELECT name,password,enabled FROM web_user WHERE name = ?"/>
+            <jdbc-user-service data-source-ref="dataSource" 
+                authorities-by-username-query="SELECT 'USER' from users where email = ?"  
+                users-by-username-query="SELECT name,password,enabled FROM users WHERE email = ?" />
         </authentication-provider>
     </authentication-manager>
 

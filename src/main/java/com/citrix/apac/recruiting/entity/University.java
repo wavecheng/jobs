@@ -14,7 +14,7 @@ public class University {
     @Column(name = "university_name", length = 200,unique=true)
     private String universityName;
 
-    @Column(name="province", length = 100,unique=true)
+    @Column(name="province", length = 100)
     private String province;
     
     @OneToMany(mappedBy = "university")

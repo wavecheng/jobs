@@ -125,11 +125,275 @@ public class Users {
     @Column(name="register_time")
     private Timestamp registerTime = new Timestamp(System.currentTimeMillis());
     
-    @OneToMany(mappedBy = "userEducation", cascade = CascadeType.REMOVE)
+    @OneToMany(mappedBy = "users", cascade = CascadeType.REMOVE)
     private List<UserEducation> userEducation;
 
     @ManyToOne
     private University university;
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public String getMobile() {
+		return mobile;
+	}
+
+	public void setMobile(String mobile) {
+		this.mobile = mobile;
+	}
+
+	public String getNameEng() {
+		return nameEng;
+	}
+
+	public void setNameEng(String nameEng) {
+		this.nameEng = nameEng;
+	}
+
+	public Gender getGender() {
+		return gender;
+	}
+
+	public void setGender(Gender gender) {
+		this.gender = gender;
+	}
+
+	public boolean isMarried() {
+		return married;
+	}
+
+	public void setMarried(boolean married) {
+		this.married = married;
+	}
+
+	public String getIdCardNo() {
+		return idCardNo;
+	}
+
+	public void setIdCardNo(String idCardNo) {
+		this.idCardNo = idCardNo;
+	}
+
+	public String getBirthProvince() {
+		return birthProvince;
+	}
+
+	public void setBirthProvince(String birthProvince) {
+		this.birthProvince = birthProvince;
+	}
+
+	public String getBirthCity() {
+		return birthCity;
+	}
+
+	public void setBirthCity(String birthCity) {
+		this.birthCity = birthCity;
+	}
+
+	public String getCurrentProvince() {
+		return currentProvince;
+	}
+
+	public void setCurrentProvince(String currentProvince) {
+		this.currentProvince = currentProvince;
+	}
+
+	public String getCurrentCity() {
+		return currentCity;
+	}
+
+	public void setCurrentCity(String currentCity) {
+		this.currentCity = currentCity;
+	}
+
+	public String getCitytoExam() {
+		return citytoExam;
+	}
+
+	public void setCitytoExam(String citytoExam) {
+		this.citytoExam = citytoExam;
+	}
+
+	public UserType getType() {
+		return type;
+	}
+
+	public void setType(UserType type) {
+		this.type = type;
+	}
+
+	public String getSalaryExpect() {
+		return salaryExpect;
+	}
+
+	public void setSalaryExpect(String salaryExpect) {
+		this.salaryExpect = salaryExpect;
+	}
+
+	public String getDepart() {
+		return depart;
+	}
+
+	public void setDepart(String depart) {
+		this.depart = depart;
+	}
+
+	public String getMajor() {
+		return major;
+	}
+
+	public void setMajor(String major) {
+		this.major = major;
+	}
+
+	public EduLevel getDegree() {
+		return degree;
+	}
+
+	public void setDegree(EduLevel degree) {
+		this.degree = degree;
+	}
+
+	public Date getGraduateDate() {
+		return graduateDate;
+	}
+
+	public void setGraduateDate(Date graduateDate) {
+		this.graduateDate = graduateDate;
+	}
+
+	public int getCet4Score() {
+		return cet4Score;
+	}
+
+	public void setCet4Score(int cet4Score) {
+		this.cet4Score = cet4Score;
+	}
+
+	public int getToefl() {
+		return toefl;
+	}
+
+	public void setToefl(int toefl) {
+		this.toefl = toefl;
+	}
+
+	public int getGmat() {
+		return gmat;
+	}
+
+	public void setGmat(int gmat) {
+		this.gmat = gmat;
+	}
+
+	public int getGre() {
+		return gre;
+	}
+
+	public void setGre(int gre) {
+		this.gre = gre;
+	}
+
+	public int getToeic() {
+		return toeic;
+	}
+
+	public void setToeic(int toeic) {
+		this.toeic = toeic;
+	}
+
+	public String getOral() {
+		return oral;
+	}
+
+	public void setOral(String oral) {
+		this.oral = oral;
+	}
+
+	public String getSecLanguage() {
+		return secLanguage;
+	}
+
+	public void setSecLanguage(String secLanguage) {
+		this.secLanguage = secLanguage;
+	}
+
+	public String getSecondLangLevel() {
+		return secondLangLevel;
+	}
+
+	public void setSecondLangLevel(String secondLangLevel) {
+		this.secondLangLevel = secondLangLevel;
+	}
+
+	public String getAwards() {
+		return awards;
+	}
+
+	public void setAwards(String awards) {
+		this.awards = awards;
+	}
+
+	public boolean isEnabled() {
+		return enabled;
+	}
+
+	public void setEnabled(boolean enabled) {
+		this.enabled = enabled;
+	}
+
+	public Timestamp getRegisterTime() {
+		return registerTime;
+	}
+
+	public void setRegisterTime(Timestamp registerTime) {
+		this.registerTime = registerTime;
+	}
+
+	public List<UserEducation> getUserEducation() {
+		return userEducation;
+	}
+
+	public void setUserEducation(List<UserEducation> userEducation) {
+		this.userEducation = userEducation;
+	}
+
+	public University getUniversity() {
+		return university;
+	}
+
+	public void setUniversity(University university) {
+		this.university = university;
+	}
 
 
 }
