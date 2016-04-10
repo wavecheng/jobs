@@ -1,11 +1,8 @@
-package com.citrix.apac.recruiting.dao;
+package com.citrix.apac.recruiting.entity;
 
 import javax.persistence.*;
 import java.util.List;
 
-/**
- * Author: Daniel
- */
 @Entity
 @Table(name = "user_role")
 public class UserRoleEntity {
@@ -17,7 +14,7 @@ public class UserRoleEntity {
     private String name;
 
     @ManyToMany(mappedBy = "roleEntities")
-    private List<UserEntity> userEntities;
+    private List<Users> userEntities;
 
     public Long getId() {
         return id;
@@ -35,11 +32,11 @@ public class UserRoleEntity {
         this.name = name;
     }
 
-    public List<UserEntity> getUserEntities() {
+    public List<Users> getUserEntities() {
         return userEntities;
     }
 
-    public void setUserEntities(List<UserEntity> userEntities) {
+    public void setUserEntities(List<Users> userEntities) {
         this.userEntities = userEntities;
     }
 

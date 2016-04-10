@@ -1,4 +1,4 @@
-package com.citrix.apac.recruiting.dao;
+package com.citrix.apac.recruiting.entity;
 
 import javax.persistence.*;
 import java.util.Date;

@@ -3,11 +3,11 @@ package com.citrix.apac.recruiting.reporsitory;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.citrix.apac.recruiting.dao.UserEntity;
+import com.citrix.apac.recruiting.entity.Users;
 
 @Repository("userRepository")
-public interface UserRepository extends JpaRepository<UserEntity, Long> {
+public interface UserRepository extends JpaRepository<Users, Long> {
 
-    UserEntity findByName(String name);
+    Users findByName(String name);
 
 }

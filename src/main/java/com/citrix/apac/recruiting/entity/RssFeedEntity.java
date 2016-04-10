@@ -1,4 +1,4 @@
-package com.citrix.apac.recruiting.dao;
+package com.citrix.apac.recruiting.entity;
 
 import org.hibernate.validator.constraints.URL;
 
@@ -25,7 +25,7 @@ public class RssFeedEntity {
 
     @ManyToOne
     @JoinColumn(name = "user_id")
-    private UserEntity userEntity;
+    private Users userEntity;
 
     @OneToMany(mappedBy = "rssFeedEntity", cascade = CascadeType.REMOVE)
     private List<RssFeedEntryEntity> itemEntities;
@@ -54,11 +54,11 @@ public class RssFeedEntity {
         this.name = name;
     }
 
-    public UserEntity getUserEntity() {
+    public Users getUserEntity() {
         return userEntity;
     }
 
-    public void setUserEntity(UserEntity userEntity) {
+    public void setUserEntity(Users userEntity) {
         this.userEntity = userEntity;
     }
 

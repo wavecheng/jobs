@@ -4,8 +4,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.citrix.apac.recruiting.dao.RssFeedEntity;
-import com.citrix.apac.recruiting.dao.RssFeedEntryEntity;
+import com.citrix.apac.recruiting.entity.RssFeedEntity;
+import com.citrix.apac.recruiting.entity.RssFeedEntryEntity;
 
 import java.util.List;
 

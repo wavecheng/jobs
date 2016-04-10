@@ -9,7 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.citrix.apac.recruiting.dao.UserEntity;
+import com.citrix.apac.recruiting.entity.Users;
 import com.citrix.apac.recruiting.reporsitory.UserRepository;
 
 @Controller
@@ -23,7 +23,7 @@ public class HomeController {
 	      Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 	      String name = auth.getName(); //get logged in username			
 	      model.addAttribute("username", name);
-	      List<UserEntity> users = userRepository.findAll();
+	      List<Users> users = userRepository.findAll();
 	      System.out.println(users.size());
 		return "index";
 	}
