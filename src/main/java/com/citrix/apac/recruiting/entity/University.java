@@ -18,7 +18,7 @@ public class University {
     private String province;
     
     @OneToMany(mappedBy = "university")
-    private List<Users> users;
+    private List<User> users;
 
     public Long getId() {
         return id;
@@ -36,11 +36,11 @@ public class University {
 		this.universityName = universityName;
 	}
 
-	public List<Users> getUsers() {
+	public List<User> getUsers() {
 		return users;
 	}
 
-	public void setUsers(List<Users> users) {
+	public void setUsers(List<User> users) {
 		this.users = users;
 	}
    

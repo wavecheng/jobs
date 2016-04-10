@@ -17,6 +17,10 @@ import javax.persistence.Table;
 
 import com.citrix.apac.recruiting.entity.Enums.EduLevel;
 
+/**
+ * @author boch
+ * 用户教育历史记录
+ */
 @Entity
 @Table(name = "user_edu")
 public class UserEducation {
@@ -40,7 +44,7 @@ public class UserEducation {
     @Column(name="major")
     private String major;
     
-    @Column(name="degree")
+    @Column(name="degree",unique=true)
     @Enumerated(EnumType.STRING)
     private EduLevel degree;
     
@@ -64,7 +68,7 @@ public class UserEducation {
     private Timestamp updateTime = new Timestamp(System.currentTimeMillis());
     
     @ManyToOne
-    private Users users;
+    private User user;
 
 	public Long getId() {
 		return id;
@@ -162,12 +166,13 @@ public class UserEducation {
 		this.updateTime = updateTime;
 	}
 
-	public Users getUsers() {
-		return users;
+	public User getUser() {
+		return user;
 	}
 
-	public void setUsers(Users users) {
-		this.users = users;
+	public void setUser(User user) {
+		this.user = user;
 	}
+
 
 }

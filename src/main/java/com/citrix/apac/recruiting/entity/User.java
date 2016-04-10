@@ -19,13 +19,18 @@ import javax.validation.constraints.Size;
 import org.hibernate.validator.constraints.Email;
 
 import com.citrix.apac.recruiting.entity.Enums.EduLevel;
+import com.citrix.apac.recruiting.entity.Enums.EngLevel;
 import com.citrix.apac.recruiting.entity.Enums.Gender;
+import com.citrix.apac.recruiting.entity.Enums.IdType;
 import com.citrix.apac.recruiting.entity.Enums.UserType;
 
-
+/*
+ * @Author boch
+ * 用户基本信息表
+ */
 @Entity
 @Table(name = "users")
-public class Users {
+public class User {
 	
     @Id
     @GeneratedValue
@@ -54,8 +59,12 @@ public class Users {
     
     private boolean married;
 
-    @Column(name="idcard_no")
-    private String idCardNo;
+    @Column(name="id_type")
+    @Enumerated(EnumType.STRING)
+    private IdType idType;
+    
+    @Column(name="id_no")
+    private String idNo;
     
     @Column(name="birth_province")
     private String birthProvince;
@@ -91,9 +100,12 @@ public class Users {
     
     @Column(name="graduate_date")
     private Date graduateDate;
-   
-    @Column(name="cet4_score")
-    private int cet4Score;
+
+    @Column(name="eng_highest_level")
+    private EngLevel engLevel;
+    
+    @Column(name="eng_highest_score")
+    private int engHighestScore;
 
     @Column(name="toefl")
     private int toefl;
@@ -125,9 +137,19 @@ public class Users {
     @Column(name="register_time")
     private Timestamp registerTime = new Timestamp(System.currentTimeMillis());
     
-    @OneToMany(mappedBy = "users", cascade = CascadeType.REMOVE)
+    @OneToMany(mappedBy = "user", cascade = CascadeType.REMOVE)
     private List<UserEducation> userEducation;
 
+    @OneToMany(mappedBy = "user", cascade = CascadeType.REMOVE)
+    private List<UserSkill> userSkill;
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.REMOVE)
+    private List<UserWork> userWork;
+    
+    @OneToMany(mappedBy = "user", cascade = CascadeType.REMOVE)
+    private List<UserProject> userProject;
+    
+    
     @ManyToOne
     private University university;
 
@@ -195,13 +217,7 @@ public class Users {
 		this.married = married;
 	}
 
-	public String getIdCardNo() {
-		return idCardNo;
-	}
 
-	public void setIdCardNo(String idCardNo) {
-		this.idCardNo = idCardNo;
-	}
 
 	public String getBirthProvince() {
 		return birthProvince;
@@ -291,12 +307,36 @@ public class Users {
 		this.graduateDate = graduateDate;
 	}
 
-	public int getCet4Score() {
-		return cet4Score;
+	public IdType getIdType() {
+		return idType;
 	}
 
-	public void setCet4Score(int cet4Score) {
-		this.cet4Score = cet4Score;
+	public void setIdType(IdType idType) {
+		this.idType = idType;
+	}
+
+	public String getIdNo() {
+		return idNo;
+	}
+
+	public void setIdNo(String idNo) {
+		this.idNo = idNo;
+	}
+
+	public EngLevel getEngLevel() {
+		return engLevel;
+	}
+
+	public void setEngLevel(EngLevel engLevel) {
+		this.engLevel = engLevel;
+	}
+
+	public int getEngHighestScore() {
+		return engHighestScore;
+	}
+
+	public void setEngHighestScore(int engHighestScore) {
+		this.engHighestScore = engHighestScore;
 	}
 
 	public int getToefl() {
@@ -395,5 +435,28 @@ public class Users {
 		this.university = university;
 	}
 
+	public List<UserSkill> getUserSkill() {
+		return userSkill;
+	}
+
+	public void setUserSkill(List<UserSkill> userSkill) {
+		this.userSkill = userSkill;
+	}
+
+	public List<UserWork> getUserWork() {
+		return userWork;
+	}
+
+	public void setUserWork(List<UserWork> userWork) {
+		this.userWork = userWork;
+	}
+
+	public List<UserProject> getUserProject() {
+		return userProject;
+	}
+
+	public void setUserProject(List<UserProject> userProject) {
+		this.userProject = userProject;
+	}
 
 }

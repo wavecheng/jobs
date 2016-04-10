@@ -9,7 +9,9 @@ public class Enums {
 	
 	public enum EduLevel{
 		Doctor,
+		MBA,
 		Master,
+		DoubleMajor,
 		UnderGraduate,
 		College,
 		HighSchool,
@@ -19,5 +21,43 @@ public class Enums {
 	public enum Gender{
 		Male,
 		Female
+	}
+	
+	public enum IdType{
+		IdCard,
+		Passport,
+		Other
+	}
+	
+	public enum EngLevel{
+		CET4,
+		CET6,
+		TEM4,
+		TEM8,
+		NA
+	}
+	
+	public enum SkillLevel{
+		Knew,
+		Experienced,
+		Advanced,
+		Expert
+	}
+	
+	public enum CompanyType{
+		PERSONAL,
+		STATE,
+		FOREIGN,
+		COMBINED,
+		GOVERNMENT,
+		INSTITUTION,
+		NGO,
+		OTHER
+	}
+	
+	public enum TimeType{
+		FullTime,
+		PartTime,
+		Intern
 	}
 }
