@@ -60,4 +60,12 @@ public class Enums {
 		PartTime,
 		Intern
 	}
+	
+	public enum JobStatus{
+		Ongoing,
+		Suspend,
+		Over,
+		Invalid
+	}
+	
 }

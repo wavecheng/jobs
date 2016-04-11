@@ -149,6 +149,8 @@ public class User {
     @OneToMany(mappedBy = "user", cascade = CascadeType.REMOVE)
     private List<UserProject> userProject;
     
+    @OneToMany(mappedBy = "user", cascade = CascadeType.REMOVE)
+    private List<Job> jobs;
     
     @ManyToOne
     private University university;
@@ -459,4 +461,13 @@ public class User {
 		this.userProject = userProject;
 	}
 
+	public List<Job> getJobs() {
+		return jobs;
+	}
+
+	public void setJobs(List<Job> jobs) {
+		this.jobs = jobs;
+	}
+
+	
 }
