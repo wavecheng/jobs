@@ -68,4 +68,14 @@ public class Enums {
 		Invalid
 	}
 	
+	
+	public enum ApplyStatus{
+		Applying,
+		Exam,
+		FirstInterview,
+		SecondInterview,
+		Final,
+		Passed,
+		Reject
+	}
 }

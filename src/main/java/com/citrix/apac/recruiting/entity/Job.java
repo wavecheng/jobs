@@ -50,8 +50,8 @@ public class Job {
     private String description;
     
     @ManyToOne
-    private User user;
-
+    private Worker worker;
+    
     public Long getId() {
         return id;
     }
@@ -140,12 +140,13 @@ public class Job {
 		this.description = description;
 	}
 
-	public User getUser() {
-		return user;
+	public Worker getWorker() {
+		return worker;
 	}
 
-	public void setUser(User user) {
-		this.user = user;
+	public void setWorker(Worker worker) {
+		this.worker = worker;
 	}
-
+	
+	
 }
