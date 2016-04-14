@@ -52,6 +52,9 @@ public class Job {
     @ManyToOne
     private Worker worker;
     
+    @OneToOne(mappedBy="job")
+    private UserExam userExam;
+    
     public Long getId() {
         return id;
     }
@@ -146,6 +149,14 @@ public class Job {
 
 	public void setWorker(Worker worker) {
 		this.worker = worker;
+	}
+
+	public UserExam getUserExam() {
+		return userExam;
+	}
+
+	public void setUserExam(UserExam userExam) {
+		this.userExam = userExam;
 	}
 	
 	

@@ -13,6 +13,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
 
@@ -155,6 +156,9 @@ public class User {
     @ManyToOne
     private University university;
 
+    @OneToOne(mappedBy="user")
+    private UserExam userExam;
+    
 	public Long getId() {
 		return id;
 	}
