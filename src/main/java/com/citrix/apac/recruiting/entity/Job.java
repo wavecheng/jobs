@@ -51,6 +51,9 @@ public class Job {
     
     @ManyToOne
     private Worker worker;
+
+    @OneToOne(mappedBy="job")
+    private UserApply userApply;
     
     @OneToOne(mappedBy="job")
     private UserExam userExam;
@@ -158,6 +161,13 @@ public class Job {
 	public void setUserExam(UserExam userExam) {
 		this.userExam = userExam;
 	}
-	
-	
+
+	public UserApply getUserApply() {
+		return userApply;
+	}
+
+	public void setUserApply(UserApply userApply) {
+		this.userApply = userApply;
+	}
+		
 }
