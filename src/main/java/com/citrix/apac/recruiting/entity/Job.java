@@ -17,14 +17,15 @@ public class Job {
     @GeneratedValue
     private Long id;
 
-    @Column(name = "title", length = 300)
+    @Column(name = "title", length = 300,nullable=false)
     private String title;
 
     @Column(name="hire_count")
     private int hireCount = 0;
     
-    @Column(name="job_type")
-    private TimeType timeType;
+    @Column(name="job_type",nullable=false)
+    @Enumerated(EnumType.STRING)
+    private TimeType timeType = TimeType.FullTime;
     
     @Column(name="is_campus")
     private boolean onlyCampus = false;

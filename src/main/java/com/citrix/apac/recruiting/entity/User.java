@@ -38,11 +38,11 @@ public class User {
     private Long id;
 
     @Size(min = 3, message = "Name must be at least 3 characters!")
-    @Column(unique = true)
     private String name;
 
     @Email(message = "Invalid e-mail address!")
     @Size(min = 3, message = "E-mail must be at least 3 characters!")
+    @Column(name="email",unique=true)
     private String email;
 
     @Size(min = 5, message = "Password must be at least 5 characters!")

@@ -12,8 +12,12 @@ public enum LogType {
 	AddWorker,
 	ModifyWorker,
 	DisableWorker,
+	AduitUser,
+	InterviewUser,
+	
 	
 	//user
 	UpdateUser,
+	ApplyJob,
 	
 }
