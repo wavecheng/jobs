@@ -8,7 +8,7 @@ import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import com.citrix.apac.recruiting.entity.Enums.ApplyStatus;
@@ -24,13 +24,10 @@ public class UserApply {
     @GeneratedValue
     private Long id;
    
-    @Column(name="stage", unique=true)
-    private String name;
-
     @Column(name="worker_name")
     private String wokerName;
     
-    @Column(name="apply_status",nullable=false)
+    @Column(name="apply_status",nullable=false,unique=true)
     @Enumerated(EnumType.STRING)
     private ApplyStatus status = ApplyStatus.Applying;
     
@@ -43,10 +40,10 @@ public class UserApply {
     @Column(name="update_time")
     private Timestamp updateTime;
     
-    @OneToOne
+    @ManyToOne
     private User user;
 
-    @OneToOne
+    @ManyToOne
     private Job job;
 
 	public Long getId() {
@@ -55,14 +52,6 @@ public class UserApply {
 
 	public void setId(Long id) {
 		this.id = id;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
 	}
 
 	public String getWokerName() {

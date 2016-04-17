@@ -45,4 +45,6 @@ public class Worker {
     @OneToMany(mappedBy = "worker", cascade = CascadeType.REMOVE)
     private List<Job> jobs;
     
+    @OneToMany(mappedBy = "worker", cascade = CascadeType.REMOVE)
+    private List<UserInterview> userInterview;
 }

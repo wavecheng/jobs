@@ -7,6 +7,7 @@ import com.citrix.apac.recruiting.entity.Enums.TimeType;
 
 import java.sql.Date;
 import java.sql.Timestamp;
+import java.util.List;
 
 @Entity
 @Table(name = "job")
@@ -52,11 +53,11 @@ public class Job {
     @ManyToOne
     private Worker worker;
 
-    @OneToOne(mappedBy="job")
-    private UserApply userApply;
+    @OneToMany(mappedBy="job")
+    private List<UserApply> userApply;
     
-    @OneToOne(mappedBy="job")
-    private UserExam userExam;
+    @OneToMany(mappedBy="job")
+    private List<UserExam> userExam;
     
     public Long getId() {
         return id;
@@ -154,20 +155,20 @@ public class Job {
 		this.worker = worker;
 	}
 
-	public UserExam getUserExam() {
-		return userExam;
-	}
-
-	public void setUserExam(UserExam userExam) {
-		this.userExam = userExam;
-	}
-
-	public UserApply getUserApply() {
+	public List<UserApply> getUserApply() {
 		return userApply;
 	}
 
-	public void setUserApply(UserApply userApply) {
+	public void setUserApply(List<UserApply> userApply) {
 		this.userApply = userApply;
 	}
-		
+
+	public List<UserExam> getUserExam() {
+		return userExam;
+	}
+
+	public void setUserExam(List<UserExam> userExam) {
+		this.userExam = userExam;
+	}
+
 }

@@ -78,4 +78,11 @@ public class Enums {
 		Passed,
 		Reject
 	}
+	
+	public enum InterviewResult{
+		Up,
+		Down,
+		Neutral
+	}
+	
 }

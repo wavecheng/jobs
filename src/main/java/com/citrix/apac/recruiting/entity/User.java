@@ -156,8 +156,8 @@ public class User {
     @ManyToOne
     private University university;
 
-    @OneToOne(mappedBy="user")
-    private UserExam userExam;
+    @OneToMany(mappedBy="user")
+    private List<UserExam> userExam;
     
 	public Long getId() {
 		return id;
@@ -472,4 +472,14 @@ public class User {
 	public void setUserApply(List<UserApply> userApply) {
 		this.userApply = userApply;
 	}
+
+	public List<UserExam> getUserExam() {
+		return userExam;
+	}
+
+	public void setUserExam(List<UserExam> userExam) {
+		this.userExam = userExam;
+	}
+	
+	
 }
