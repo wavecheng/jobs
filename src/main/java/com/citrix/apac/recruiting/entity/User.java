@@ -66,6 +66,9 @@ public class User {
     
     @Column(name="id_no")
     private String idNo;
+
+    @Column(name="university_name")
+    private String universityName;
     
     @Column(name="birth_province")
     private String birthProvince;

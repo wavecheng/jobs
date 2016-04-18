@@ -6,12 +6,16 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
 
+import org.hibernate.engine.profile.Fetch;
 import org.hibernate.validator.constraints.Email;
 
 /*
@@ -42,12 +46,16 @@ public class Worker {
     @Column(name="register_time")
     private Timestamp registerTime = new Timestamp(System.currentTimeMillis());
     
-    @OneToMany(mappedBy = "worker", cascade = CascadeType.REMOVE)
+    @OneToMany(mappedBy = "worker", cascade = CascadeType.REMOVE , fetch=FetchType.EAGER)
     private List<Job> jobs;
     
     @OneToMany(mappedBy = "worker", cascade = CascadeType.REMOVE)
     private List<UserInterview> userInterview;
 
+    @ManyToMany(fetch=FetchType.EAGER)
+    @JoinTable(name="worker_x_role")
+    private List<WorkerRole> roles;
+    
 	public Long getId() {
 		return id;
 	}
@@ -111,5 +119,13 @@ public class Worker {
 	public void setUserInterview(List<UserInterview> userInterview) {
 		this.userInterview = userInterview;
 	}
-     
+
+	public List<WorkerRole> getRoles() {
+		return roles;
+	}
+
+	public void setRoles(List<WorkerRole> roles) {
+		this.roles = roles;
+	}
+    
 }

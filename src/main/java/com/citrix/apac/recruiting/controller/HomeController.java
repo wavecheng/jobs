@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.citrix.apac.recruiting.entity.Job;
 import com.citrix.apac.recruiting.entity.User;
 import com.citrix.apac.recruiting.entity.Worker;
 import com.citrix.apac.recruiting.reporsitory.UserRepository;
@@ -33,7 +34,12 @@ public class HomeController {
 	      System.out.println(users.size());
 	      
 	      Worker wk = wokerRepository.findByEmail("bo.chen@citrix.com");
+	      List<Job> jobs = wk.getJobs();
 	      System.out.println(wk.getName());
+	      
+	      for(Job j : jobs){
+	    	  System.out.println(j.getDescription());
+	      }
 		return "index";
 	}
 	
