@@ -11,7 +11,7 @@
                 http://www.springframework.org/schema/tx
                 http://www.springframework.org/schema/tx/spring-tx.xsd
                 http://www.springframework.org/schema/data/jpa
-                http://www.springframework.org/schema/data/jpa/spring-jpa.xsd">
+                http://www.springframework.org/schema/data/jpa/spring-jpa.xsd" >
                 
 	<context:property-placeholder location="classpath:persistence-mysql.properties"/>
 	
@@ -35,6 +35,7 @@
                 <entry key="hibernate.dialect" value="${hibernate.dialect}"/>
                 <entry key="hibernate.show_sql" value="${hibernate.show_sql}"/>
                 <entry key="hibernate.hbm2ddl.auto" value="${hibernate.hbm2ddl.auto}"/>
+                <entry key="hibernate.current_session_context_class" value="thread" />
             </map>
         </property>
     </bean>

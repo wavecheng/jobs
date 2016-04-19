@@ -46,13 +46,13 @@ public class Worker {
     @Column(name="register_time")
     private Timestamp registerTime = new Timestamp(System.currentTimeMillis());
     
-    @OneToMany(mappedBy = "worker", cascade = CascadeType.REMOVE , fetch=FetchType.EAGER)
+    @OneToMany(mappedBy = "worker", cascade = CascadeType.REMOVE)
     private List<Job> jobs;
     
     @OneToMany(mappedBy = "worker", cascade = CascadeType.REMOVE)
     private List<UserInterview> userInterview;
 
-    @ManyToMany(fetch=FetchType.EAGER)
+    @ManyToMany
     @JoinTable(name="worker_x_role")
     private List<WorkerRole> roles;
     

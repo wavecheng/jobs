@@ -14,6 +14,7 @@ import com.citrix.apac.recruiting.entity.User;
 import com.citrix.apac.recruiting.entity.Worker;
 import com.citrix.apac.recruiting.reporsitory.UserRepository;
 import com.citrix.apac.recruiting.reporsitory.WorkerRepository;
+import com.citrix.apac.recruiting.service.impl.WorkerService;
 
 @Controller
 public class HomeController {
@@ -22,7 +23,7 @@ public class HomeController {
 	private UserRepository userRepository;
 
 	@Autowired
-	private WorkerRepository wokerRepository;
+	private WorkerService wokerService;
 	
 	@RequestMapping(value="/")
 	public String index(ModelMap model){
@@ -33,13 +34,13 @@ public class HomeController {
 	      List<User> users = userRepository.findAll();
 	      System.out.println(users.size());
 	      
-	      Worker wk = wokerRepository.findByEmail("bo.chen@citrix.com");
+	      Worker wk = wokerService.findByEmail("bo.chen@citrix.com");
 	      List<Job> jobs = wk.getJobs();
-	      System.out.println(wk.getName());
-	      
+	      System.out.println(wk.getName());	      
 	      for(Job j : jobs){
 	    	  System.out.println(j.getDescription());
 	      }
+	      
 		return "index";
 	}
 	
