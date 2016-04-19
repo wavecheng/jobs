@@ -13,4 +13,6 @@ import com.citrix.apac.recruiting.entity.Worker;
 public interface JobRepository extends JpaRepository<Job, Long> {
 
     List<Job> findByWorker(Worker worker);
+    
+    List<Job> findByWorkLocationLike(String s);
 }

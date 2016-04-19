@@ -40,8 +40,8 @@ public class WorkerService{
 	public Worker findByEmail(String email) {
 
 		Worker wk = workerRepository.findByEmail(email);		
-		wk.setJobs(jobRepository.findByWorker(wk));
-
+		//wk.setJobs(jobRepository.findByWorker(wk));
+		wk.setJobs(jobRepository.findByWorkLocationLike("%N%"));
 		//Hibernate.initialize(wk.getJobs());
 		return wk;
 	}
