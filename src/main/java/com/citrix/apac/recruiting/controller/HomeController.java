@@ -1,6 +1,7 @@
 package com.citrix.apac.recruiting.controller;
 
 import java.util.List;
+import java.util.stream.Stream;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -14,7 +15,8 @@ import com.citrix.apac.recruiting.entity.User;
 import com.citrix.apac.recruiting.entity.Worker;
 import com.citrix.apac.recruiting.reporsitory.UserRepository;
 import com.citrix.apac.recruiting.reporsitory.WorkerRepository;
-import com.citrix.apac.recruiting.service.impl.WorkerService;
+import com.citrix.apac.recruiting.service.JobService;
+import com.citrix.apac.recruiting.service.WorkerService;
 
 @Controller
 public class HomeController {
@@ -24,6 +26,9 @@ public class HomeController {
 
 	@Autowired
 	private WorkerService wokerService;
+
+	@Autowired
+	private JobService jobService;
 	
 	@RequestMapping(value="/")
 	public String index(ModelMap model){
@@ -31,12 +36,14 @@ public class HomeController {
 	      String name = auth.getName(); //get logged in username			
 	      model.addAttribute("username", name);
 	      
-	      List<User> users = userRepository.findAll();
-	      System.out.println(users.size());
+//	      List<User> users = userRepository.findAll();
+//	      System.out.println(users.size());
+//	      
+//	      Worker wk = wokerService.findByEmail("bo.chen@citrix.com");
+//	      List<Job> jobs = wk.getJobs();
+//	      System.out.println(wk.getName());	  
 	      
-	      Worker wk = wokerService.findByEmail("bo.chen@citrix.com");
-	      List<Job> jobs = wk.getJobs();
-	      System.out.println(wk.getName());	      
+	      List<Job> jobs = jobService.getAllOpenJobs();
 	      for(Job j : jobs){
 	    	  System.out.println(j.getDescription());
 	      }
